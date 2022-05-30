@@ -2,7 +2,6 @@ import argparse
 import torch
 from transformers import BertTokenizer, BertModel, XLMRobertaModel, XLMRobertaTokenizer
 import os
-import numpy as np
 import pickle
 
 
@@ -11,7 +10,7 @@ def run(file, tokenizer, model):
         lines = fp.readlines()
         lines = [line.strip() for line in lines]
 
-    print("Starts to create layers")
+    print("Starts to create layers for " + file.split('.')[0])
     for layer in range(1, 13):
         b = []
         for line in lines:
@@ -66,7 +65,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, default='bert', choices=['bert', 'xlm-R'])
     parser.add_argument('--max_len', type=int, default=512)
-    parser.add_argument('--source_text', type=str, default='./sentence') #FOLDER!!
+    parser.add_argument('--source_text', type=str, default='./sentences') #FOLDER!!
 
     args = parser.parse_args()
     args.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
