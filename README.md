@@ -31,3 +31,5 @@ Parameters allowed:
 * '--hidden_dim' (default is 100)
 * '--train_batch_size' (default is 512)
 * '--layer' (default is 1)
+
+NB! the data in the folder "sentences" is not under a MIT license, Swedish: © 1998 - 2022 Deutscher Wortschatz. All rights reserved., Norwegian: © Store Norske Leksikon, Danish: © Den Store Danske.
