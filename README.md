@@ -1,5 +1,5 @@
 # Multilingual-Models
-Project Work in IMT4308
+Pre-trained multilingual models to encode language identity for the Scandinavian languages.
 
 ## Installation
 
@@ -33,3 +33,16 @@ Parameters allowed:
 * '--layer' (default is 1)
 
 NB! the data in the folder "sentences" is not under a MIT license, Swedish: © 1998 - 2022 Deutscher Wortschatz. All rights reserved., Norwegian: © Store Norske Leksikon, Danish: © Den Store Danske.
+
+## Result
+
+As shown in the table below, mBERT outperforms XLM-R possibly because the Next Sentence Prediction (NSP) task plays an important role in keeping language identity when training the BERT model. BERT needs to identify whether two sentences are from the same language and if they are adjacent. Both mBERT and XLM-R are trained on distinct lexicon text. The baseline is Random BERT, that is more of a real-world experience for detecting languages. Random BERT randomizes all weights of each layer at the lexical layer (layer 0) as it is done in the paper by Tenney et al [[1](https://arxiv.org/abs/1905.06316)].
+
+| Lang | mBERT | XLM-R | Baseline* |
+|-------------------------------------|-------------------------------------|-------------------------------------|----------------------------------------|
+| nb                                   | 93.45\%                             | 89.07\%                             | 65.05\%                                |
+| da                                  | 95.56\%                             | 91.81\%                             | 64.76\%                                |
+| sv                                  | 89.14\%                             | 81.64\%                             | 48.47\%                                |
+| en                                  | 82.45\%                             | 82.01\%                             | N/A                                    
+
+*Baseline is Random BERT.
